@@ -9,7 +9,9 @@ This apps purpose is to look for gifs related to a certain topic, using Giphy's 
 
 # Watch live
 
-Site is hosted on Netlify at: https://gif-lookup.netlify.app/
+The site is hosted on both Netlify and Github Pages:
+- Netlify: https://gif-lookup.netlify.app/
+- Github Pages: https://mischatobias.github.io/Gif-Lookup/
 
 # Built with
 
