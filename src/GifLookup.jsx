@@ -1,11 +1,13 @@
 import { useState } from "react"
-import { AddCategory } from './components/AddCategory'
+import { GifGrid, AddCategory } from './components'
 
 export const GifLookup = () => {
 
   const [categories, setCategories] = useState(['Jujutsu Kaisen'])
 
   const onNewCategory = (newCategory) => {
+    if(categories.includes(newCategory)) return;
+
     setCategories([newCategory, ...categories])
   }
 
@@ -15,9 +17,7 @@ export const GifLookup = () => {
 
         <AddCategory onNewCategory={onNewCategory} />
 
-        <ol>
-          { categories.map(category => <li key={category}>{category}</li>) }
-        </ol>
+        { categories.map(category => <GifGrid key={category} category={category} />) }
     </>
   )
 }
