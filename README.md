@@ -1,8 +1,16 @@
-# React + Vite
+# Gif Lookup
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This apps purpose is to look for gifs related to a certain topic, using Giphy's API.
 
-Currently, two official plugins are available:
+# Content
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Watch live](#watch-live)
+- [Built with](#built-with)
+
+# Watch live
+
+Site is hosted on Netlify at: https://gif-lookup.netlify.app/
+
+# Built with
+
+This app was developed using react 18, using custom hooks, and using a 3rd party API from GIPHY.
