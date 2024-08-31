@@ -1,3 +1,4 @@
+import { config } from 'dotenv'
 import { defineConfig, mergeConfig } from 'vitest/config'
 import viteConfig from './vite.config.mjs'
 
@@ -6,6 +7,8 @@ export default mergeConfig(viteConfig, defineConfig({
     name: 'happy-dom',
     root: './tests',
     environment: 'happy-dom',
-    // setupFiles: ['./setup.happy-dom.ts'],
+  },
+  env: {
+    ...config({ path: ".env" }).parsed,
   },
 }))
