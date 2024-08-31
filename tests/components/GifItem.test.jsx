@@ -2,7 +2,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { GifItem } from "../../src/components/GifItem";
 import { afterAll, describe, expect, test } from "vitest";
 
-describe("Pruebas en <GifItem />", () => {
+describe("<GifItem /> tests", () => {
 
   afterAll(() => {
     cleanup();
