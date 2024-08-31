@@ -1,0 +1,39 @@
+diff --git a/node_modules/jest-worker/build/workers/threadChild.js b/node_modules/jest-worker/build/workers/threadChild.js
+index 16aca00..a59b245 100644
+--- a/node_modules/jest-worker/build/workers/threadChild.js
++++ b/node_modules/jest-worker/build/workers/threadChild.js
+@@ -116,19 +116,29 @@ function reportError(error, type) {
+   if (_worker_threads().isMainThread) {
+     throw new Error('Child can only be used on a forked process');
+   }
++
+   if (error == null) {
+     error = new Error('"null" or "undefined" thrown');
+   }
++
++  // Add console.log to see the actual error
++  delete error.hash
++  if(error.constructor){
++    console.log(error.constructor.name);
++  }
++  if(error.message){
++    console.log(error.message);
++  }
++  if(error.stack && error.stack.length){
++    console.log(error.stack);
++  }
++
+   _worker_threads().parentPort.postMessage([
+     type,
+     error.constructor && error.constructor.name,
+     error.message,
+     error.stack,
+-    typeof error === 'object'
+-      ? {
+-          ...error
+-        }
+-      : error
++    typeof error === 'object' ? {...error} : error
+   ]);
+ }
+ function end() {
