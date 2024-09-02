@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, test } from 'vitest'
+import { afterEach, describe, expect, test, vitest } from 'vitest'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { AddCategory } from '../../src/components'
 
@@ -18,17 +18,28 @@ describe('<AddCategory /> tests', () => {
 
      test('should call onNewCategory if input has a value', () => { 
         const inputValue = 'Suguru Geto'
-        // TODO: ????
+        const onNewCategory = vitest.fn()
 
-        render(<AddCategory onNewCategory={() => {}} />)
+        render(<AddCategory onNewCategory={onNewCategory} />)
         const input = screen.getByRole('textbox')
-        const form = screen.getByRole('form')
+        const form = screen.getByRole('form') 
 
         fireEvent.input(input, { target: { value: inputValue }})
         fireEvent.submit(form)
 
         expect(input.value).toBe('')
-
-        screen.debug()
+        expect(onNewCategory).toHaveBeenCalledTimes(1)
+        expect(onNewCategory).toHaveBeenCalledWith(inputValue)
       })
+
+      test('should not call onNewCategory if there is no input', () => { 
+        const onNewCategory = vitest.fn()
+
+        render(<AddCategory onNewCategory={onNewCategory} />)
+        
+        const form = screen.getByRole('form')
+        fireEvent.submit(form)
+
+        expect(onNewCategory).not.toHaveBeenCalled()
+       })
  })
