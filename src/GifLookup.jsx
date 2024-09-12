@@ -13,7 +13,7 @@ export const GifLookup = () => {
 
   return (
     <>
-        <h1>Gif Lookup</h1>
+        <h1>Gif Lookup based on GIPHY</h1>
 
         <AddCategory onNewCategory={onNewCategory} />
 
