@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { cleanup, renderHook, waitFor } from "@testing-library/react";
+import { renderHook, waitFor } from "@testing-library/react";
 import { useFetchGifs } from "../../src/hooks/useFetchGifs";
 
 global.fetch = vi.fn()
@@ -10,7 +10,6 @@ function createFetchResponse(data) {
 
 describe('useFetchGifs hook tests', () => { 
     beforeEach(() => {
-        cleanup()
         const useFetchGifsResponse = {
           data: [
             {
